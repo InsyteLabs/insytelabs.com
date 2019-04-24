@@ -1,0 +1,42 @@
+
+@import 'variables'
+
+html, body
+    margin: 0
+    padding: 0
+html
+    min-height: 100vh
+body
+    font-size: 1.8rem
+    min-height: 100%
+    padding: 0 10px
+    background:
+        image: url('../../img/backgrounds/trianglify.svg')
+        repeat: no-repeat
+        size: cover
+hr
+    margin: 25px auto
+    max-width: 30%
+
+.container
+    max-width: 800px
+    margin-top: 2rem
+    border-radius: $radius
+    color: $white
+    background-color: rgba($gray2, .90)
+    padding: 15px 6vw
+    text-align: center
+
+    @media screen and (min-width: 768px)
+        margin-top: 10vh
+
+    h4
+        max-width: 85%
+        text-align: center
+        margin: 25px auto 15px
+
+    svg
+        max-width: 50%
+        min-width: 240px
+        display: block
+        margin: 0 auto 10px
