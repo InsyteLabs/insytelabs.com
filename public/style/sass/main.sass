@@ -10,33 +10,84 @@ body
     font-size: 1.8rem
     min-height: 100%
     padding: 0 10px
+    background-color: #248200
     background:
         image: url('../../img/backgrounds/green-triangles.svg')
         repeat: no-repeat
         size: cover
 hr
-    margin: 25px auto
-    max-width: 30%
+    margin: 20px auto
+    max-width: 40%
 
-.container
-    max-width: 800px
-    margin-top: 2rem
+main
+    position: relative
+    margin: 2rem auto 25px
     border-radius: $radius
+    overflow: hidden
+    max-width: 800px
+
+    @media screen and (min-width: 768px)
+        margin-top: 10vh
+
+.pane-wrapper
+    width: 200%
+    min-width: 200%
+    position: relative
+    left: 0
+
+    &.contact
+        left: -100%
+
+.pane
+    position: relative
+    display: inline-block
+    vertical-align: top
+    width: 50%
+    float: left
     color: $white
     background-color: rgba($gray2, .90)
     padding: 15px 6vw
     text-align: center
-
-    @media screen and (min-width: 768px)
-        margin-top: 10vh
 
     h4
         max-width: 85%
         text-align: center
         margin: 25px auto 15px
 
-    svg
-        max-width: 50%
-        min-width: 240px
-        display: block
-        margin: 0 auto 10px
+.contact-form
+    input, textarea
+        border-width: 2px
+        &:focus
+            border-color: lighten(#248200, 10%)
+        &.error
+            border-color: red
+
+.btn-primary
+    text-transform: uppercase
+    width: 100%
+    height: auto
+    font-size: 2.6rem
+    background-color: #248200 !important
+    border-color: darken(#248200, 5%) !important
+
+    @media screen and (min-width: 768px)
+        width: 60%
+
+    &:hover
+        background-color: darken(#248200, 10%) !important
+        border-color: darken(#248200, 15%) !important
+
+.logo
+    max-width: 65%
+    min-width: 240px
+    display: block
+    margin: 0 auto 10px
+
+#close
+    position: absolute
+    top: 15px
+    right: 20px
+    max-width: 20px
+
+    @media screen and (min-width: 768px)
+        max-width: 45px
