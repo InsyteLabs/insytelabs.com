@@ -384,11 +384,11 @@
 
                     if(!validateForm(data)) return;
 
-                    console.log(data);
-                    console.log(axios);
+                    // const url = 'https://api.insytelabs.com/forms/contact';
+                    const url = 'http://localhost:8888/forms/contact';
 
                     axios({
-                        url: 'https://api.insytelabs.com/forms/contact',
+                        url,
                         method: 'POST',
                         headers: {
                             'X-Requested-With': 'XMLHTTPRequst'
@@ -398,12 +398,25 @@
                     }).then(r => {
                         if(r.status === 200){
                             // show success
+                            console.log(r.data);
                         }
                         else{
                             // error occurred
+                            console.log(r);
                         }
                     }).catch(e => {
-                        console.log(e);
+                        if(e.response){
+                            const { status } = e.response;
+
+                            if(status >= 400 && status < 500){
+                                console.log(e.response.data.message);
+                            }
+
+                            console.log(status);
+                        }
+                        else{
+                            console.log(e);
+                        }
                     });
 
                 }
