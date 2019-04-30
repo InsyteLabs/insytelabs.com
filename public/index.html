@@ -182,7 +182,9 @@
                     </div>
                 </div>
                 <div class="container contact-form-container pane">
-                    <svg id="close" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 394c0 3.3-2.7 6-6 6H54c-3.3 0-6-2.7-6-6V86c0-3.3 2.7-6 6-6h404c3.3 0 6 2.7 6 6v340zM356.5 194.6L295.1 256l61.4 61.4c4.6 4.6 4.6 12.1 0 16.8l-22.3 22.3c-4.6 4.6-12.1 4.6-16.8 0L256 295.1l-61.4 61.4c-4.6 4.6-12.1 4.6-16.8 0l-22.3-22.3c-4.6-4.6-4.6-12.1 0-16.8l61.4-61.4-61.4-61.4c-4.6-4.6-4.6-12.1 0-16.8l22.3-22.3c4.6-4.6 12.1-4.6 16.8 0l61.4 61.4 61.4-61.4c4.6-4.6 12.1-4.6 16.8 0l22.3 22.3c4.7 4.6 4.7 12.1 0 16.8z" class=""></path></svg>
+                    <svg id="close" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path fill="currentColor" d="M464 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 394c0 3.3-2.7 6-6 6H54c-3.3 0-6-2.7-6-6V86c0-3.3 2.7-6 6-6h404c3.3 0 6 2.7 6 6v340zM356.5 194.6L295.1 256l61.4 61.4c4.6 4.6 4.6 12.1 0 16.8l-22.3 22.3c-4.6 4.6-12.1 4.6-16.8 0L256 295.1l-61.4 61.4c-4.6 4.6-12.1 4.6-16.8 0l-22.3-22.3c-4.6-4.6-4.6-12.1 0-16.8l61.4-61.4-61.4-61.4c-4.6-4.6-4.6-12.1 0-16.8l22.3-22.3c4.6-4.6 12.1-4.6 16.8 0l61.4 61.4 61.4-61.4c4.6-4.6 12.1-4.6 16.8 0l22.3 22.3c4.7 4.6 4.7 12.1 0 16.8z" class=""></path>
+                    </svg>
                     <svg version="1.1" class="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 350 115" fill="currentColor">
                         <g>
                             <g>
@@ -331,25 +333,63 @@
                         <div class="row">
                             <div class="col-6 pt-0">
                                 <label for="first-name">First Name</label>
-                                <input id="first-name" class="my-0" type="text">
+                                <input id="first-name" data-validator="\w+" class="my-0" type="text">
                             </div>
                             <div class="col-6 pt-0">
                                 <label for="last-name">Last Name</label>
-                                <input id="last-name" class="my-0" type="text">
+                                <input id="last-name" data-validator="\w+" class="my-0" type="text">
                             </div>
                             <div class="col-12">
                                 <label for="email">Email</label>
-                                <input id="email" class="my-0" type="text">
+                                <input id="email" data-validator=".*?@.*\..{2,}" class="my-0" type="text">
                             </div>
                             <div class="col-12">
                                 <label for="message">Message</label>
-                                <textarea id="message" class="my-0" cols="30" rows="10"></textarea>
+                                <textarea id="message" data-validator=".+" class="my-0" cols="30" rows="10"></textarea>
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-primary submit-button" type="submit" role="submit">Submit</button>
                             </div>
                         </div>
                     </form>
+                    <div class="thank-you hidden">
+                        <h3 class="mb-3">Thank You!</h3>
+                        <p>
+                            Thank you for your interest Insyte Labs. We look forward to working with you and helping you reach your goals. We will be in touch with you as quickly as possible.
+                        </p>
+                        <p class="mb-0">
+                            Here is a copy of your submission:
+                        </p>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>First Name</th>
+                                    <td><span class="first-name"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>Last Name</th>
+                                    <td><span class="last-name"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>Email</th>
+                                    <td><span class="email"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>Message</th>
+                                    <td><span class="message"></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="error-message hidden">
+                        <h3 class="text-center">Whoops, something went wrong!</h3>
+                        <p>
+                            We're sorry, something went wrong while attempting to process your message. Sadly, these things happen... We encourage you to try your request again later and totally understand if this is kind of a turn-off. I mean, if you can't make a simple contact form work then how can you be trusted with anything? Truth is, these things can happen for a number of reasons outside of our control. Could be a massive power outage in our data center, gremlins chewing the internet cables, heck, it could even be aliens. Actually, it's almost certainly aliens <span class="unicorn">👽</span>
+                        </p>
+                        <p>
+                            Please try again later. Here's a Unicorn to cheer you up <span class="unicorn">🦄</span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </main>
@@ -367,7 +407,9 @@
                       email         = contactForm.querySelector('#email'),
                       message       = contactForm.querySelector('#message'),
                       submitButton  = contactForm.querySelector('.submit-button'),
-                      paneWrapper   = document.querySelector('.pane-wrapper');
+                      paneWrapper   = document.querySelector('.pane-wrapper'),
+                      thankYou      = document.querySelector('.thank-you'),
+                      errorMessage  = document.querySelector('.error-message');
 
 
                 contactButton.addEventListener('click', toggleContact);
@@ -375,6 +417,29 @@
 
                 contactForm.addEventListener('submit', formSubmit);
                 submitButton.addEventListener('click', formSubmit);
+
+                [
+                    firstName, lastName, email, message
+                ].forEach(el => {
+                    el.addEventListener('change', validateInput);
+                    el.addEventListener('blur',   validateInput);
+                });
+
+                function validateInput(e){
+                    const { target } = e;
+
+                    const validator = target.getAttribute('data-validator');
+
+                    if(!validator) return;
+
+                    const exp = new RegExp(validator),
+                          val = target.value;
+
+                    if(!exp.test(val)){
+                        return target.classList.add('error');
+                    }
+                    target.classList.remove('error');
+                }
 
                 function formSubmit(e){
                     e.preventDefault();
@@ -398,12 +463,22 @@
                     }).then(r => {
                         if(r.status === 200){
                             // show success
-                            console.log(r.data);
+                            const { data, message } = r.data;
+                            if(message.toLowerCase() === 'accepted'){
+
+                                thankYou.querySelector('.first-name').innerText = data.firstName;
+                                thankYou.querySelector('.last-name').innerText  = data.lastName;
+                                thankYou.querySelector('.email').innerText      = data.email;
+                                thankYou.querySelector('.message').innerText    = data.message;
+
+                                contactForm.classList.add('hidden');
+                                thankYou.classList.remove('hidden');
+                                return;
+                            }
                         }
-                        else{
-                            // error occurred
-                            console.log(r);
-                        }
+                        contactForm.classList.add('hidden');
+                        thankYou.classList.add('hidden');
+                        errorMessage.classList.remove('hidden');
                     }).catch(e => {
                         if(e.response){
                             const { status } = e.response;
