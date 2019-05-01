@@ -462,38 +462,26 @@
                         data
                     }).then(r => {
                         if(r.status === 200){
-                            // show success
+
                             const { data, message } = r.data;
-                            if(message.toLowerCase() === 'accepted'){
 
-                                thankYou.querySelector('.first-name').innerText = data.firstName;
-                                thankYou.querySelector('.last-name').innerText  = data.lastName;
-                                thankYou.querySelector('.email').innerText      = data.email;
-                                thankYou.querySelector('.message').innerText    = data.message;
+                            thankYou.querySelector('.first-name').innerText = data.firstName;
+                            thankYou.querySelector('.last-name').innerText  = data.lastName;
+                            thankYou.querySelector('.email').innerText      = data.email;
+                            thankYou.querySelector('.message').innerText    = data.message;
 
-                                contactForm.classList.add('hidden');
-                                thankYou.classList.remove('hidden');
-                                return;
-                            }
+                            contactForm.classList.add('hidden');
+                            thankYou.classList.remove('hidden');
+
+                            return;
                         }
+
+                        throw new Error();
+                    }).catch(e => {
                         contactForm.classList.add('hidden');
                         thankYou.classList.add('hidden');
                         errorMessage.classList.remove('hidden');
-                    }).catch(e => {
-                        if(e.response){
-                            const { status } = e.response;
-
-                            if(status >= 400 && status < 500){
-                                console.log(e.response.data.message);
-                            }
-
-                            console.log(status);
-                        }
-                        else{
-                            console.log(e);
-                        }
                     });
-
                 }
 
                 function validateForm(data){
