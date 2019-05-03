@@ -138,12 +138,7 @@
     }
 
     function toggleContact(){
-        try{
-            paneWrapper.classList.toggle('contact');
-            window.scrollTo(0, 0);
-        }
-        catch(e){
-            alert(e.message);
-        }
+        paneWrapper.classList.toggle('contact');
+        window.scrollTo(0, 0);
     }
 }());
